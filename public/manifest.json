@@ -1,0 +1,6 @@
+{
+  "short_name": "Flight Search",
+  "name": "Flight Search application",
+  "start_url": ".",
+  "display": "standalone"
+}

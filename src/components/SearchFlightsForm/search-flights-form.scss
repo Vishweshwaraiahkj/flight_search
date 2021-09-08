@@ -1,0 +1,150 @@
+@import '../../styles/commons';
+
+@mixin addMargins($mtmb, $mlmr) {
+    >div {
+        margin: $mtmb $mlmr;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.search-box {
+    display       : flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    position      : relative;
+
+    .search-label {
+        font-weight   : $semibold;
+        padding-bottom: 1rem;
+    }
+
+    .search-inputs {
+        width           : 100%;
+        height          : 2.5rem;
+        padding         : 0.625rem 1.25rem;
+        border          : 2px solid $dark;
+        border-radius   : 0;
+        background-color: $light;
+        font-size       : 1rem;
+        margin-bottom   : 1rem
+    }
+
+    .submit-btn {
+        @include PrimaryBtn();
+    }
+
+    .error {
+        color: $error;
+
+        @media screen and (max-width: #{$tabs-max-width}) {
+            position      : relative;
+            padding-bottom: 1rem;
+        }
+    }
+
+    .inputs-container {
+        @include addMargins(0, 1rem);
+    }
+
+    .seat-counters {
+        @include addMargins(0.5rem, 0.625rem);
+    }
+
+    .switch-box {
+        position: absolute;
+        right   : 0;
+
+        label {
+            margin: 0 0.625rem;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .switch {
+            position: relative;
+            display : inline-block;
+            width   : 60px;
+            height  : 34px;
+
+            input {
+                opacity: 0;
+                width  : 0;
+                height : 0;
+
+                &:checked+.slider {
+                    background-color: #2196F3;
+                }
+
+                &:focus+.slider {
+                    box-shadow: 0 0 1px #2196F3;
+                }
+
+                &:checked+.slider:before {
+                    -webkit-transform: translateX(26px);
+                    -ms-transform    : translateX(26px);
+                    transform        : translateX(26px);
+                }
+            }
+        }
+
+        .slider {
+            position          : absolute;
+            cursor            : pointer;
+            top               : 0;
+            left              : 0;
+            right             : 0;
+            bottom            : 0;
+            background-color  : $grey;
+            -webkit-transition: .4s;
+            transition        : .4s;
+
+            &:before {
+                position          : absolute;
+                content           : "";
+                height            : 26px;
+                width             : 26px;
+                left              : 4px;
+                bottom            : 4px;
+                background-color  : $white;
+                -webkit-transition: .4s;
+                transition        : .4s;
+            }
+        }
+    }
+
+    .adults-label,
+    .children-label,
+    .infants-label {
+        margin-right: 0.625rem;
+    }
+
+    .circle {
+        display        : inline-flex;
+        justify-content: center;
+        align-items    : center;
+        padding        : 0.625rem;
+        margin         : 0 0.25rem;
+        border-radius  : 100%;
+        border         : 1px solid;
+        width          : 1.25rem;
+        height         : 1.25rem;
+        cursor         : pointer;
+
+        &:active {
+            border: 2px $grey;
+        }
+    }
+}

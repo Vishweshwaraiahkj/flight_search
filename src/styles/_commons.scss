@@ -1,0 +1,103 @@
+@import '../styles/variables';
+
+// common classes
+.d {
+    &-flex {
+        display: flex;
+    }
+
+    &-block {
+        display: block;
+    }
+}
+
+.align-vertically-center {
+    display    : flex;
+    align-items: center;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.w-100p {
+    width: 100%;
+}
+
+.w-25p {
+    width: 25%;
+}
+
+.flex-one {
+    flex: 1;
+}
+
+.p-1rem {
+    padding: 1rem;
+}
+
+.full-screen-loader {
+    position: absolute;
+    left    : 0;
+    right   : 0;
+    top     : 0;
+    bottom  : 0;
+
+    > span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+@mixin PrimaryBtn {
+    padding         : 0.625rem;
+    margin          : 0.25rem 0;
+    position        : relative;
+    overflow        : hidden;
+    color           : $white;
+    background-color: $success;
+    font-weight     : $semibold;
+    outline         : none;
+    border          : 2px solid $success;
+    border-radius   : 0;
+    font-size       : 1rem;
+    box-shadow      : 3px 3px 6px $dark-shadow;
+
+    &:hover {
+        background-color: $success-hover;
+        color           : $white;
+        cursor          : pointer;
+    }
+
+    &:active {
+        transform : scale(0.99);
+        box-shadow: 3px 2px 4px $dark-shadow;
+    }
+
+    &:disabled {
+        background-color: $grey;
+        border-color    : $grey;
+        color           : $darkgray;
+        cursor          : not-allowed;
+        opacity         : 0.5;
+    }
+
+    &.medium-btn {
+        width     : 10rem;
+        text-align: center;
+        padding   : 0.625rem 1.25rem;
+
+        @media screen and (max-width: #{$mobile-max-width}) {
+            width    : 100vw;
+            max-width: 6rem;
+            padding  : 0.625rem 0.625rem;
+        }
+    }
+}
